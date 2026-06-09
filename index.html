@@ -536,7 +536,7 @@ function VoteRow({ label, sub, voters, max, total, accent, emoji, isTop, first }
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
             <span style={{ fontSize: 15, fontWeight: 600, color: 'var(--g900)', whiteSpace: 'nowrap' }}>{label}</span>
-            {isTop && voters.length > 0 && <span style={{ fontSize: 10, fontWeight: 700, color: '#fff', background: 'var(--g900)', padding: '2px 7px', borderRadius: 999, whiteSpace: 'nowrap' }}>최다 득표</span>}
+            {isTop && voters.length > 0 && <span style={{ fontSize: 10, fontWeight: 700, color: '#fff', background: '#ff385c', padding: '2px 7px', borderRadius: 999, whiteSpace: 'nowrap' }}>최다 득표</span>}
           </div>
           {sub && <div style={{ fontSize: 12, color: 'var(--g500)', marginTop: 1 }}>{sub}</div>}
         </div>
@@ -544,7 +544,7 @@ function VoteRow({ label, sub, voters, max, total, accent, emoji, isTop, first }
       </div>
       {/* bar */}
       <div style={{ height: 8, borderRadius: 999, background: 'var(--g100)', overflow: 'hidden' }}>
-        <div style={{ width: pct + '%', height: '100%', borderRadius: 999, background: isTop ? 'var(--g900)' : accent || 'var(--g300)', transition: 'width .5s ease' }} />
+        <div style={{ width: pct + '%', height: '100%', borderRadius: 999, background: isTop ? '#ff385c' : accent || 'var(--g300)', transition: 'width .5s ease' }} />
       </div>
       {/* voters */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginTop: 9, flexWrap: 'wrap' }}>
@@ -596,7 +596,7 @@ function ResultsScreen({ nickname, menu, date, onRestart }) {
         </div>
 
         {/* winner card — soft */}
-        <div style={{ marginTop: 18, borderRadius: 18, background: 'var(--white)', border: '1px solid var(--g100)', padding: '16px', boxShadow: '0 2px 10px rgba(0,0,0,0.04)' }}>
+        <div style={{ marginTop: 18, borderRadius: 18, background: 'var(--white)', border: '1.5px solid #222222', padding: '16px', boxShadow: '0 2px 10px rgba(0,0,0,0.04)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, fontWeight: 600, color: 'var(--g500)', whiteSpace: 'nowrap', marginBottom: 14 }}>
             <span style={{ fontSize: 14 }}>🏆</span><span>우리 팀이 가장 많이 고른</span>
           </div>
