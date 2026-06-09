@@ -165,7 +165,7 @@ function BottomCTA({ label, onClick, disabled }) {
     <div style={{ flexShrink: 0, padding: '12px 16px 26px', background: 'linear-gradient(transparent, var(--white) 30%)' }}>
       <button onClick={onClick} disabled={disabled} style={{
         width: '100%', height: 54, borderRadius: 14, border: 'none',
-        background: disabled ? 'var(--g100)' : 'var(--g900)',
+        background: disabled ? 'var(--g100)' : '#ff385c',
         color: disabled ? 'var(--g300)' : '#fff',
         fontSize: 16, fontWeight: 600, cursor: disabled ? 'default' : 'pointer',
         transition: 'background .2s, transform .1s', letterSpacing: '-0.3px'
@@ -215,8 +215,8 @@ function MenuScreen({ selected, onSelect, onRoulette, onNext, justRouletted }) {
         position: 'absolute', bottom: 'calc(102px + env(safe-area-inset-bottom, 0px))', right: 16, zIndex: 10,
         display: 'flex', alignItems: 'center', gap: 7,
         padding: '11px 16px 11px 12px', borderRadius: 999, cursor: 'pointer',
-        background: 'linear-gradient(135deg, #6C40F0, #9d3df0)', border: 'none',
-        boxShadow: '0 6px 20px rgba(108,64,240,0.38)',
+        background: '#ff385c', border: 'none',
+        boxShadow: '0 6px 20px rgba(255,56,92,0.38)',
         animation: 'popIn .4s ease'
       }}>
         <span style={{ fontSize: 18 }}>🎯</span>
@@ -506,7 +506,7 @@ function SummaryScreen({ menu, date, onRestart, onComplete }) {
         <button onClick={onRestart} style={{ margin: '18px auto 0', display: 'block', background: 'none', border: 'none', cursor: 'pointer', fontSize: 14, fontWeight: 500, color: 'var(--g500)', textDecoration: 'underline', textUnderlineOffset: 3, whiteSpace: 'nowrap' }}>처음부터 다시 정하기</button>
       </div>
       <div style={{ flexShrink: 0, padding: '12px 16px 26px' }}>
-        <button onClick={onComplete} style={{ width: '100%', height: 54, borderRadius: 14, border: 'none', background: 'var(--g900)', color: '#fff', fontSize: 16, fontWeight: 600, cursor: 'pointer', letterSpacing: '-0.3px' }}>선택 완료</button>
+        <button onClick={onComplete} style={{ width: '100%', height: 54, borderRadius: 14, border: 'none', background: '#ff385c', color: '#fff', fontSize: 16, fontWeight: 600, cursor: 'pointer', letterSpacing: '-0.3px' }}>선택 완료</button>
       </div>
     </div>);
 
