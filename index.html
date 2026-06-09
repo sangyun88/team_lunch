@@ -40,17 +40,17 @@
   --hot:#FE0955; --pink:#FF0095; --gold:#FFD04E;
 }
 *{ box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
-html,body{ height:100%; }
+html{ height:100%; overflow:hidden; }
 body{
   background:var(--white); font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;
-  display:flex; justify-content:center; min-height:100vh;
+  display:flex; justify-content:center; height:100%; overflow:hidden;
   color:var(--g900);
 }
-#stage{ display:flex; width:100%; max-width:480px; }
-#root{ width:100%; }
+#stage{ display:flex; width:100%; max-width:480px; height:100%; }
+#root{ width:100%; height:100%; }
 ::-webkit-scrollbar{ display:none; }
 .shell{
-  width:100%; height:100dvh; background:var(--white);
+  width:100%; height:100%; background:var(--white);
   overflow:hidden; position:relative;
   display:flex; flex-direction:column;
   /* safe area for notched phones */
@@ -60,7 +60,8 @@ body{
 button{ font-family:inherit; touch-action:manipulation; }
 /* 데스크탑에서는 카드 형태로 */
 @media (min-width:480px){
-  body{ background:var(--g50); align-items:flex-start; padding:40px 0; }
+  html,body{ overflow:auto; height:auto; }
+  body{ background:var(--g50); align-items:flex-start; padding:40px 0; min-height:100vh; }
   #stage{ border-radius:32px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.15); height:auto; }
   .shell{ height:calc(100vh - 80px); border-radius:32px; }
 }
