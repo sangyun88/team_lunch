@@ -42,18 +42,28 @@
 *{ box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
 html,body{ height:100%; }
 body{
-  background:var(--white); font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;
-  display:flex; flex-direction:column; min-height:100vh; overflow:hidden;
+  background:var(--g50); font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;
+  display:flex; justify-content:center; min-height:100vh;
   color:var(--g900);
 }
-#stage{ display:flex; flex:1; width:100%; }
+#stage{ display:flex; width:100%; max-width:480px; }
+#root{ width:100%; }
 ::-webkit-scrollbar{ display:none; }
 .shell{
   width:100%; height:100dvh; background:var(--white);
   overflow:hidden; position:relative;
   display:flex; flex-direction:column;
+  /* safe area for notched phones */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 }
-button{ font-family:inherit; }
+button{ font-family:inherit; touch-action:manipulation; }
+/* 데스크탑에서는 카드 형태로 */
+@media (min-width:480px){
+  body{ align-items:flex-start; padding:40px 0; }
+  #stage{ border-radius:32px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.15); height:auto; }
+  .shell{ height:calc(100vh - 80px); border-radius:32px; }
+}
 @keyframes sheetUp{ from{ transform:translateY(100%); } to{ transform:translateY(0); } }
 @keyframes fadeIn{ from{ opacity:0; } to{ opacity:1; } }
 @keyframes popIn{ from{ opacity:0; transform:scale(.9) translateY(8px); } to{ opacity:1; transform:scale(1) translateY(0); } }
@@ -202,7 +212,7 @@ function MenuScreen({ selected, onSelect, onRoulette, onNext, justRouletted }) {
     <div key="menu" style={{ flex: 1, display: 'flex', flexDirection: 'column', minHeight: 0, animation: 'screenIn .3s ease', position: 'relative' }}>
       {/* floating roulette button */}
       <button onClick={onRoulette} style={{
-        position: 'absolute', bottom: 102, right: 16, zIndex: 10,
+        position: 'absolute', bottom: 'calc(102px + env(safe-area-inset-bottom, 0px))', right: 16, zIndex: 10,
         display: 'flex', alignItems: 'center', gap: 7,
         padding: '11px 16px 11px 12px', borderRadius: 999, cursor: 'pointer',
         background: 'linear-gradient(135deg, #6C40F0, #9d3df0)', border: 'none',
@@ -231,7 +241,7 @@ function MenuScreen({ selected, onSelect, onRoulette, onNext, justRouletted }) {
                 animation: justRouletted === m.id ? 'popIn .4s ease' : 'none'
               }}>
                 {/* image */}
-                <div style={{ width: '100%', height: 140, overflow: 'hidden', position: 'relative' }}>
+                <div style={{ width: '100%', height: 'clamp(120px, 22vw, 180px)', overflow: 'hidden', position: 'relative' }}>
                   <img src={m.img} alt={m.id} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   {/* check overlay */}
                   {on && <div style={{ position: 'absolute', top: 10, right: 10, width: 24, height: 24, borderRadius: '50%', background: 'var(--g900)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
