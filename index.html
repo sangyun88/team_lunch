@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content">
 <title>6월 팀 점심회식</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +42,7 @@
 *{ box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
 html,body{ height:100%; }
 body{
-  background:var(--g50); font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;
+  background:var(--white); font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;
   display:flex; justify-content:center; min-height:100vh;
   color:var(--g900);
 }
@@ -60,7 +60,7 @@ body{
 button{ font-family:inherit; touch-action:manipulation; }
 /* 데스크탑에서는 카드 형태로 */
 @media (min-width:480px){
-  body{ align-items:flex-start; padding:40px 0; }
+  body{ background:var(--g50); align-items:flex-start; padding:40px 0; }
   #stage{ border-radius:32px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.15); height:auto; }
   .shell{ height:calc(100vh - 80px); border-radius:32px; }
 }
