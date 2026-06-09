@@ -173,7 +173,6 @@ function NicknameScreen({ value, onChange, onNext }) {
 
         {/* input */}
         <div style={{ marginTop: 24 }}>
-          <label style={{ fontSize: 13, fontWeight: 600, color: 'var(--g600)', display: 'block', marginBottom: 8 }}>닉네임</label>
           <input value={value} onChange={(e) => onChange(e.target.value.slice(0, 10))} placeholder="예) 김점심" maxLength={10}
           onKeyDown={(e) => {if (e.key === 'Enter' && ok) onNext();}}
           style={{
