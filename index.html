@@ -42,17 +42,16 @@
 *{ box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
 html,body{ height:100%; }
 body{
-  background:#2B2B2F; font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;
-  display:flex; align-items:center; justify-content:center; min-height:100vh; overflow:hidden;
+  background:var(--white); font-family:'Pretendard','Apple SD Gothic Neo',sans-serif;
+  display:flex; flex-direction:column; min-height:100vh; overflow:hidden;
   color:var(--g900);
 }
-#stage{ display:flex; align-items:center; justify-content:center; }
+#stage{ display:flex; flex:1; width:100%; }
 ::-webkit-scrollbar{ display:none; }
 .shell{
-  width:360px; height:800px; background:var(--white); border-radius:38px;
-  overflow:hidden; box-shadow:0 24px 70px rgba(0,0,0,0.5); position:relative;
-  display:flex; flex-direction:column; flex-shrink:0;
-  border:7px solid #0c0c0e;
+  width:100%; height:100dvh; background:var(--white);
+  overflow:hidden; position:relative;
+  display:flex; flex-direction:column;
 }
 button{ font-family:inherit; }
 @keyframes sheetUp{ from{ transform:translateY(100%); } to{ transform:translateY(0); } }
@@ -693,7 +692,6 @@ function App() {
 
   return (
     <div className="shell">
-      <StatusBar />
       <Header stepIndex={stepIndex} showSteps={showSteps} onBack={back} canBack={screen !== 'nickname'} />
       {screen === 'nickname' &&
       <NicknameScreen value={nickname} onChange={setNickname} onNext={() => setScreen('menu')} />
@@ -727,17 +725,6 @@ function App() {
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 
-/* ── viewport fit scaling ── */
-function fit() {
-  const shell = document.querySelector('.shell');if (!shell) {requestAnimationFrame(fit);return;}
-  const pad = 32;
-  const s = Math.min((window.innerWidth - pad) / 360, (window.innerHeight - pad) / 800, 1);
-  document.getElementById('stage').style.transform = `scale(${s})`;
-}
-window.addEventListener('resize', fit);
-const fitObs = new MutationObserver(fit);
-fitObs.observe(document.getElementById('root'), { childList: true, subtree: true });
-fit();
 </script>
 </body>
 </html>
