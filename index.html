@@ -657,7 +657,7 @@ function ResultsScreen({ nickname, menu, date, onRestart }) {
             <span style={{ fontSize: 14, fontWeight: 700, color: 'var(--g900)', whiteSpace: 'nowrap' }}>일정 투표</span>
           </div>
           {dateVotes.map((v, i) =>
-          <VoteRow key={v.d.d} label={`6월 ${v.d.d}일 (${v.d.dow})`} sub={null} voters={v.voters} max={maxDate} total={total} accent={'var(--purple)'} emoji={null} isTop={v.voters.length === maxDate} first={i === 0} />
+          <VoteRow key={v.d.d} label={`6월 ${v.d.d}일 (${v.d.dow})`} sub={null} voters={v.voters} max={maxDate} total={total} accent={'#222222'} emoji={null} isTop={v.voters.length === maxDate} first={i === 0} />
           )}
         </div>
 
