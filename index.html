@@ -46,7 +46,7 @@ body{
   display:flex; justify-content:center; height:100%; overflow:hidden;
   color:var(--g900);
 }
-#stage{ display:flex; width:100%; max-width:480px; height:100%; }
+#stage{ display:flex; width:100%; max-width:420px; height:100%; }
 #root{ width:100%; height:100%; }
 ::-webkit-scrollbar{ display:none; }
 .shell{
@@ -59,7 +59,7 @@ body{
 }
 button{ font-family:inherit; touch-action:manipulation; }
 /* 데스크탑에서는 카드 형태로 */
-@media (min-width:480px){
+@media (min-width:420px){
   html,body{ overflow:auto; height:auto; }
   body{ background:var(--g50); align-items:flex-start; padding:40px 0; min-height:100vh; }
   #stage{ border-radius:32px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.15); height:auto; }
